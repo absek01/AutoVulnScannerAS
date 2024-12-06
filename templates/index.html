@@ -6,11 +6,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Automated Vulnerability Scanner</h1>
-    <form action="{{ url_for('main.scan') }}" method="post">
-        <label for="url">Enter URL to scan:</label>
-        <input type="text" id="url" name="url" required>
-        <button type="submit">Scan</button>
-    </form>
+    <div class="container">
+        <header>
+            <h1>Automated Vulnerability Scanner</h1>
+        </header>
+        <main>
+            <form action="{{ url_for('main.scan') }}" method="post">
+                <label for="url">Enter URL to scan:</label>
+                <input type="text" id="url" name="url" required>
+                <button type="submit">Scan</button>
+            </form>
+        </main>
+        <footer>
+            <p>Developed by Abhisek Shrestha</p>
+        </footer>
+    </div>
 </body>
 </html>

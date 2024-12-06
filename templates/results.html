@@ -6,11 +6,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Scan Results</h1>
-    <ul>
-        <li>SQL Injection: {{ 'Found' if results['sql_injection'] else 'Not Found' }}</li>
-        <li>XSS: {{ 'Found' if results['xss'] else 'Not Found' }}</li>
-    </ul>
-    <a href="{{ url_for('main.index') }}">Back to Home</a>
+    <div class="container">
+        <header>
+            <h1>Scan Results</h1>
+        </header>
+        <main>
+            <ul>
+                <li>SQL Injection: {{ 'Found' if results['sql_injection'] else 'Not Found' }}</li>
+                <li>XSS: {{ 'Found' if results['xss'] else 'Not Found' }}</li>
+            </ul>
+            <a class="button" href="{{ url_for('main.index') }}">Back to Home</a>
+        </main>
+    </div>
 </body>
 </html>
