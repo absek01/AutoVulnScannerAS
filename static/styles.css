@@ -73,6 +73,19 @@ li {
     margin-bottom: 10px;
     background: #eee;
     border-radius: 4px;
+    cursor: pointer;
+}
+
+.details {
+    display: none;
+    margin-top: 10px;
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.details.visible {
+    display: block;
 }
 
 .button {
