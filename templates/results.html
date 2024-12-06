@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Scan Results</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -18,26 +17,23 @@
                 <li><strong>Suspicious:</strong> {{ results['data']['attributes']['last_analysis_stats']['suspicious'] }}</li>
                 <li><strong>Undetected:</strong> {{ results['data']['attributes']['last_analysis_stats']['undetected'] }}</li>
             </ul>
-
             <h2>Detailed Analysis</h2>
-            <ul>
+            <ul class="detailed-analysis">
                 {% for engine, analysis in results['data']['attributes']['last_analysis_results'].items() %}
-                    <li class="expandable">
+                    <li>
                         <strong>{{ engine }}:</strong> {{ analysis['category'] }} - {{ analysis['result'] }}
-                        <div class="details">
-                            <p>Engine version: {{ analysis['engine_version'] }}</p>
-                            <p>Method: {{ analysis['method'] }}</p>
-                            <p>Engine update: {{ analysis['engine_update'] }}</p>
-                        </div>
+                        <ul>
+                            <li><strong>Description:</strong> {{ analysis['description'] }}</li>
+                            <li><strong>Detected Attack:</strong> {{ analysis['result'] }}</li>
+                            <li><strong>Engine version:</strong> {{ analysis['engine_version'] }}</li>
+                            <li><strong>Method:</strong> {{ analysis['method'] }}</li>
+                            <li><strong>Engine update:</strong> {{ analysis['engine_update'] }}</li>
+                        </ul>
                     </li>
                 {% endfor %}
             </ul>
-
-            <canvas id="resultChart" width="400" height="200"></canvas>
-
             <a class="button" href="{{ url_for('main.index') }}">Back to Home</a>
         </main>
     </div>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
